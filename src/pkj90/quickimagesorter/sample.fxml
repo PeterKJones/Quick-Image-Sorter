@@ -2,27 +2,26 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="MainFrame" alignment="TOP_CENTER" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkj90.quickimagesorter.Controller">
    <children>
       <Label text="Quick Image Sorter" />
       <BorderPane>
          <right>
-            <VBox spacing="6.0" BorderPane.alignment="CENTER">
+            <VBox id="hotkeyVBox" spacing="6.0" BorderPane.alignment="CENTER">
                <children>
                   <VBox alignment="TOP_CENTER">
                      <children>
-                        <Label text="Source" />
-                        <HBox alignment="TOP_CENTER" spacing="6.0">
+                        <Label id="sourceBox" text="Source" />
+                        <HBox id="sourceHBox" alignment="BOTTOM_CENTER" spacing="6.0">
                            <children>
-                              <TextField />
-                              <Button mnemonicParsing="false" text="Browe" />
+                              <Label id="sourcePath" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="Directory not set" textOverrun="CLIP" />
+                              <Button id="sourceBtn" mnemonicParsing="false" onAction="#setSource" text="Browse" />
                            </children>
                         </HBox>
                      </children>

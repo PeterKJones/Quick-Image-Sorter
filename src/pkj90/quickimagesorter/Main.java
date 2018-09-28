@@ -10,14 +10,22 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
+        Parent root = fxmlLoader.load();
+        ((Controller) fxmlLoader.getController()).setPrimaryStage(primaryStage);
+        ((Controller) fxmlLoader.getController()).initializeControls();
+
         primaryStage.setTitle("Quick Image Sorter");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 721, 452));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
 
     public static void main(String[] args) {
         launch(args);
+
     }
+
+
 }

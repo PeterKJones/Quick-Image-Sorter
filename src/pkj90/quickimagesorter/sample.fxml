@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import pkj90.quickimagesorter.HotkeyButton?>
 <VBox id="MainFrame" alignment="TOP_CENTER" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkj90.quickimagesorter.Controller">
    <children>
       <Label text="Quick Image Sorter" />
@@ -20,7 +21,7 @@
                         <Label id="sourceBox" text="Source" />
                         <HBox id="sourceHBox" alignment="BOTTOM_CENTER" spacing="6.0">
                            <children>
-                              <Label id="sourcePath" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="Directory not set" textOverrun="CLIP" />
+                              <Label fx:id="sourcePath" alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" text="Directory not set" textOverrun="CLIP" />
                               <Button id="sourceBtn" mnemonicParsing="false" onAction="#setSource" text="Browse" />
                            </children>
                         </HBox>
@@ -36,7 +37,7 @@
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" text="Configure" />
+                              <HotkeyButton fx:id="confHotBtn7" minHeight="25.0" minWidth="69.0" mnemonicParsing="false" onAction="#configureHotkeyBtn" text="Configure" />
                               <Label text="Hotkey" />
                            </children>
                         </VBox>
@@ -48,7 +49,7 @@
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" text="Configure" />
+                              <HotkeyButton fx:id="confHotBtn8" minHeight="25.0" minWidth="69.0" mnemonicParsing="false" onAction="#configureHotkeyBtn" text="Configure" />
                               <Label text="Hotkey" />
                            </children>
                         </VBox>
@@ -60,47 +61,7 @@
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" text="Configure" />
-                              <Label text="Hotkey" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <HBox>
-                     <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label text="Group Name" />
-                              <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Button mnemonicParsing="false" text="Configure" />
-                              <Label text="Hotkey" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label text="Group Name" />
-                              <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Button mnemonicParsing="false" text="Configure" />
-                              <Label text="Hotkey" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label text="Group Name" />
-                              <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Button mnemonicParsing="false" text="Configure" />
+                              <HotkeyButton fx:id="confHotBtn9" minHeight="25.0" minWidth="69.0" mnemonicParsing="false" onAction="#configureHotkeyBtn" text="Configure" />
                               <Label text="Hotkey" />
                            </children>
                         </VBox>
@@ -116,7 +77,7 @@
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" text="Configure" />
+                              <HotkeyButton fx:id="confHotBtn4" minHeight="25.0" minWidth="69.0" mnemonicParsing="false" onAction="#configureHotkeyBtn" text="Configure" />
                               <Label text="Hotkey" />
                            </children>
                         </VBox>
@@ -128,7 +89,7 @@
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" text="Configure" />
+                              <HotkeyButton fx:id="confHotBtn5" minHeight="25.0" minWidth="69.0" mnemonicParsing="false" onAction="#configureHotkeyBtn" text="Configure" />
                               <Label text="Hotkey" />
                            </children>
                         </VBox>
@@ -140,7 +101,47 @@
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
                                  </image>
                               </ImageView>
-                              <Button mnemonicParsing="false" text="Configure" />
+                              <HotkeyButton fx:id="confHotBtn6" minHeight="25.0" minWidth="69.0" mnemonicParsing="false" onAction="#configureHotkeyBtn" text="Configure" />
+                              <Label text="Hotkey" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Group Name" />
+                              <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
+                                 </image>
+                              </ImageView>
+                              <HotkeyButton fx:id="confHotBtn1" minHeight="25.0" minWidth="69.0" mnemonicParsing="false" onAction="#configureHotkeyBtn" text="Configure" />
+                              <Label text="Hotkey" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Group Name" />
+                              <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
+                                 </image>
+                              </ImageView>
+                              <HotkeyButton fx:id="confHotBtn2" minHeight="25.0" minWidth="69.0" mnemonicParsing="false" onAction="#configureHotkeyBtn" text="Configure" />
+                              <Label text="Hotkey" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label text="Group Name" />
+                              <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
+                                 </image>
+                              </ImageView>
+                              <HotkeyButton fx:id="confHotBtn3" minHeight="25.0" minWidth="69.0" mnemonicParsing="false" onAction="#configureHotkeyBtn" text="Configure" />
                               <Label text="Hotkey" />
                            </children>
                         </VBox>

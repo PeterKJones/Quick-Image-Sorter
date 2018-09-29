@@ -12,8 +12,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = fxmlLoader.load();
-        ((Controller) fxmlLoader.getController()).setPrimaryStage(primaryStage);
-        ((Controller) fxmlLoader.getController()).initializeControls();
+
+        Controller controller = fxmlLoader.getController();
+        controller.setPrimaryStage(primaryStage);
+        controller.setupListeners(primaryStage);
 
         primaryStage.setTitle("Quick Image Sorter");
         primaryStage.setScene(new Scene(root, 721, 452));
@@ -21,11 +23,8 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
     public static void main(String[] args) {
         launch(args);
 
     }
-
-
 }

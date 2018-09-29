@@ -1,33 +1,83 @@
 package pkj90.quickimagesorter;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
+import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
 
 
 public class Controller {
     private Stage primaryStage;
 
+    @FXML private Label sourcePath;
+
+    private ArrayList<HotkeyButton> hotBtnArr = new ArrayList<HotkeyButton>();
+    private HotkeyButton focusHotkey; //Hotkey button currently being configured
+    @FXML private HotkeyButton confHotBtn1;
+    @FXML private HotkeyButton confHotBtn2;
+    @FXML private HotkeyButton confHotBtn3;
+    @FXML private HotkeyButton confHotBtn4;
+    @FXML private HotkeyButton confHotBtn5;
+    @FXML private HotkeyButton confHotBtn6;
+    @FXML private HotkeyButton confHotBtn7;
+    @FXML private HotkeyButton confHotBtn8;
+    @FXML private HotkeyButton confHotBtn9;
+
     public void setPrimaryStage(Stage stage){
         primaryStage = stage;
     }
 
-    public void initializeControls(){
-        //place things here if you need to set a control to a certain state from the start. May become irrelevant.
+    public void setupListeners(Stage primaryStage)
+    {
+        hotBtnArr.add(confHotBtn1);
+        hotBtnArr.add(confHotBtn2);
+        hotBtnArr.add(confHotBtn3);
+        hotBtnArr.add(confHotBtn4);
+        hotBtnArr.add(confHotBtn5);
+        hotBtnArr.add(confHotBtn6);
+        hotBtnArr.add(confHotBtn7);
+        hotBtnArr.add(confHotBtn8);
+        hotBtnArr.add(confHotBtn9);
+
+
+        primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
+            if (key.getCode().isLetterKey() || key.getCode().isDigitKey() || key.getCode().isKeypadKey() && key.getCode() != KeyCode.ESCAPE)
+            {
+                if (focusHotkey != null)
+                {
+                    hotBtnArr.forEach((i)-> {
+                        if (key.getCode() == i.getKeyCode())
+                        {
+                            //System.out.println("copy hotkey detected with " + key.getText().toUpperCase());
+                            focusHotkey.resetText();
+                            focusHotkey = null;
+                        }
+                    });
+                    if (focusHotkey != null) //this is not redundant.
+                    {
+                        focusHotkey.setKeyCode(key.getCode());
+                        focusHotkey.setText(key.getText().toUpperCase());
+                        focusHotkey = null;
+                    }
+                }
+            }
+            else if (key.getCode() == KeyCode.ESCAPE)
+            {
+                focusHotkey.resetText();
+                focusHotkey = null;
+            }
+        });
     }
 
 
     public void setSource(ActionEvent actionEvent) {
 
-        Button sourceBtn = (Button)primaryStage.getScene().lookup("#sourceBtn");
-        HBox sourceBox = (HBox)primaryStage.getScene().lookup("#sourceHBox");
 
 
         DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -42,13 +92,31 @@ public class Controller {
         {
             String path = selectedDirectory.getPath();
             System.out.println("Directory chosen!");
-            Label sourcePath = (Label)primaryStage.getScene().lookup("#sourcePath");
-            VBox hotkeyVBox = (VBox) primaryStage.getScene().lookup("#hotkeyVBox");
             sourcePath.setText(path.substring(path.lastIndexOf("/") + 1).substring(path.lastIndexOf("\\") + 1));
 
         }
         else
             System.out.println("No directory found");
 
+    }
+
+    public void configureHotkeyBtn(ActionEvent actionEvent) {
+        HotkeyButton clickedButton = (HotkeyButton)actionEvent.getSource();
+        if (focusHotkey == clickedButton)
+        {
+            focusHotkey.resetText();
+            focusHotkey = null;
+        }
+        else if (focusHotkey != null)
+        {
+            focusHotkey.resetText();
+            focusHotkey = clickedButton;
+            focusHotkey.setText("...");
+        }
+        else
+        {
+            focusHotkey = clickedButton;
+            focusHotkey.setText("...");
+        }
     }
 }

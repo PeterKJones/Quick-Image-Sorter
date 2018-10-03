@@ -7,8 +7,8 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 <?import pkj90.quickimagesorter.HotkeyButton?>
+
 <VBox id="MainFrame" alignment="TOP_CENTER" prefHeight="452.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pkj90.quickimagesorter.Controller">
    <children>
       <Label text="Quick Image Sorter" />
@@ -31,7 +31,7 @@
                      <children>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Group Name" />
+                              <Label text="Set Destination" />
                               <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
@@ -43,7 +43,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Group Name" />
+                              <Label text="Set Destination" />
                               <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
@@ -55,7 +55,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Group Name" />
+                              <Label text="Set Destination" />
                               <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
@@ -71,7 +71,7 @@
                      <children>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Group Name" />
+                              <Label text="Set Destination" />
                               <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
@@ -83,7 +83,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Group Name" />
+                              <Label text="Set Destination" />
                               <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
@@ -95,7 +95,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Group Name" />
+                              <Label text="Set Destination" />
                               <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
@@ -111,7 +111,7 @@
                      <children>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Group Name" />
+                              <Label text="Set Destination" />
                               <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
@@ -123,7 +123,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Group Name" />
+                              <Label text="Set Destination" />
                               <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
@@ -135,7 +135,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label text="Group Name" />
+                              <Label text="Set Destination" />
                               <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../../Pictures/5f674534a6.jpg" />
@@ -151,8 +151,11 @@
             </VBox>
          </right>
          <left>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+            <ImageView fx:id="focusImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
          </left>
+         <bottom>
+            <Label fx:id="statusText" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
    </children>
 </VBox>

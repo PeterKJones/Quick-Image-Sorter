@@ -3,11 +3,13 @@ package pkj90.quickimagesorter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
+import javafx.scene.image.ImageView;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -28,6 +30,8 @@ public class Controller {
     @FXML private HotkeyButton confHotBtn7;
     @FXML private HotkeyButton confHotBtn8;
     @FXML private HotkeyButton confHotBtn9;
+    @FXML private Label statusText;
+    @FXML private ImageView focusImage;
 
     public void setPrimaryStage(Stage stage){
         primaryStage = stage;
@@ -54,8 +58,8 @@ public class Controller {
                     hotBtnArr.forEach((i)-> {
                         if (key.getCode() == i.getKeyCode())
                         {
-                            //System.out.println("copy hotkey detected with " + key.getText().toUpperCase());
                             focusHotkey.resetText();
+                            statusText.setText("That key is already bound to something else.");
                             focusHotkey = null;
                         }
                     });
@@ -63,6 +67,7 @@ public class Controller {
                     {
                         focusHotkey.setKeyCode(key.getCode());
                         focusHotkey.setText(key.getText().toUpperCase());
+                        statusText.setText("Hotkey bound to " + key.getText().toUpperCase());
                         focusHotkey = null;
                     }
                 }
@@ -72,14 +77,17 @@ public class Controller {
                 focusHotkey.resetText();
                 focusHotkey = null;
             }
+            else if (focusHotkey != null)
+            {
+                statusText.setText("That key cannot be bound. Please choose another.");
+                focusHotkey.resetText();
+                focusHotkey = null;
+            }
         });
     }
 
 
     public void setSource(ActionEvent actionEvent) {
-
-
-
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Choose a Source Directory");
         File defaultDirectory = new File(".");
@@ -93,7 +101,7 @@ public class Controller {
             String path = selectedDirectory.getPath();
             System.out.println("Directory chosen!");
             sourcePath.setText(path.substring(path.lastIndexOf("/") + 1).substring(path.lastIndexOf("\\") + 1));
-
+            SourceManager sourceManager = new SourceManager(this, selectedDirectory);
         }
         else
             System.out.println("No directory found");
@@ -119,4 +127,9 @@ public class Controller {
             focusHotkey.setText("...");
         }
     }
+
+    public void setFocusImage(Image image){
+        focusImage.setImage(image);
+    }
+
 }
